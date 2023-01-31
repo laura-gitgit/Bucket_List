@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header{
+    background-color: coral;
+    padding: 1rem 10%;
+    font-family: "Bookman Old Style";
+}
+
+.header_home{
+    padding : 10px 1em 0 0.5em;
+    font-size: 15px;
+}
+
+.header-logo {
+    font-size: 0.7rem;
+    font-weight: normal;
+}
+
+.header-logo img {
+    max-width: 42px;
+    margin-right: 5px;
+}
+
+header a{
+    text-decoration: none;
+    color: black;
+}
+
+.container-footer{
+    background-color: peru;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+body{
+    background-color: bisque;
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    height: 100vh;
+    grid-auto-rows: 0fr 1fr 0fr;
+    margin: 0;
+}
