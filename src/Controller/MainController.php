@@ -23,10 +23,8 @@ class MainController extends AbstractController
         $data = file_get_contents('../data/team.json');
         $team = json_decode($data, true);
 
-        return $this->render('main/aboutus.html.twig',
-        [
-            'team' => $team
-        ]);
+        return $this->render('main/aboutus.html.twig', compact('team')
+        );
     }
 
 }
