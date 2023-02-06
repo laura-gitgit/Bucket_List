@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="form_title">
+        <h2>Ajouter un souhait</h2>
+        {% form_theme wishForm 'tailwind_2_layout.html.twig' %}
+        {{ form_start(wishForm) }}
+
+
+    <div class="form_wish">
+        <p>
+            {{ form_label(wishForm.title) }}
+            {{ form_widget(wishForm.title) }}
+            {{ form_errors(wishForm.title) }}
+        </p>
+        <p>
+            {{ form_label(wishForm.description) }}
+            {{ form_widget(wishForm.description) }}
+            {{ form_errors(wishForm.description) }}
+        </p>
+        <p>
+            {{ form_label(wishForm.author) }}
+            {{ form_widget(wishForm.author) }}
+            {{ form_errors(wishForm.author) }}
+        </p>
+
+            {{ form_widget(wishForm.Ajouter) }}
+    </div>
+
+    {{ form_end(wishForm) }}
+    </div>
+{% endblock %}
+

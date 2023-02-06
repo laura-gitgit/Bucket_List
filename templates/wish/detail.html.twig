@@ -5,6 +5,15 @@
 {% endblock %}
 
 {% block body %}
-
+    <section class="wish-one">
+        <article>
+            <h2>Title : {{ wish.title }}</h2>
+            <div>Created by {{ wish.author }} on {{ wish.dateCreated | date('d-m-Y') }}</div>
+            <div>
+                <p>Description :</p>
+                <p>{{ wish.description }}</p>
+            </div>
+        </article>
+    </section>
 {% endblock %}
 

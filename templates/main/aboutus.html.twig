@@ -6,11 +6,17 @@
             <img src="{{ member.picture }}" style="max-width: 150px">
             {% if member.firstname == 'Fabien' %}
                 <li>Nom : {{ member.firstname }} ❤ </li>
-            {% endif %}
                 <li>Prénom : {{ member.lastname }}</li>
                 <li>Date de naissance : {{ member.dateOfBirth | date('d-m-Y') }}</li>
                 <li>Créateur de : {{ member.creatorOf }}</li>
                 <li>Description : {{ member.description }}</li>
+            {% else %}
+                <li>Nom : {{ member.firstname }} </li>
+                <li>Prénom : {{ member.lastname }}</li>
+                <li>Date de naissance : {{ member.dateOfBirth | date('d-m-Y') }}</li>
+                <li>Créateur de : {{ member.creatorOf }}</li>
+                <li>Description : {{ member.description }}</li>
+            {% endif %}
         {% endfor %}
     </ul>
 {% endblock %}

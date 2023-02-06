@@ -4,9 +4,14 @@
 }
 
 header{
-    background-color: coral;
+    background-color: #CDB9F6;
     padding: 1rem 10%;
     font-family: "Bookman Old Style";
+}
+
+main {
+    background: linear-gradient(to top, #FF9292, #CDB9F6) no-repeat;
+    padding: 2rem 15%;
 }
 
 .header_home{
@@ -33,16 +38,54 @@ header a{
 }
 
 .container-footer{
-    background-color: peru;
+    background-color: #FF9292;
     padding: 1rem 0;
     text-align: center;
 }
 
 body{
-    background-color: bisque;
     display: grid;
     grid-template-areas: "header" "main" "footer";
     height: 100vh;
     grid-auto-rows: 0fr 1fr 0fr;
     margin: 0;
 }
+
+.wish-list div{
+    padding: 1rem 10%;
+}
+
+.wish-one {
+    text-align: center;
+    font-size: 15px;
+}
+
+main h1 {
+    padding: 10px 0 0 2.9em;
+}
+
+.wish-list a {
+    text-decoration: none;
+    color: blue;
+}
+
+.form_wish {
+    display: block;
+    width: 150px;
+    float: left;
+}
+
+.form_title {
+    padding: 0.1rem 39%;
+}
+
+.alert-success {
+    text-align: center;
+    color: green;
+    padding: 1rem 2% 0 0;
+    padding-top: 1rem;
+    width: 100%;
+    background: linear-gradient(to top, #B1F7AC, #CDB9F6) no-repeat;
+    padding-top: 50px;
+}
+
