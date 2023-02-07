@@ -5,12 +5,12 @@ namespace App\Controller;
 use App\Entity\Wish;
 use App\Form\WishType;
 use App\Repository\WishRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/wish', name: 'wish')]
 class WishController extends AbstractController
@@ -20,7 +20,7 @@ class WishController extends AbstractController
     public function wishes(WishRepository $wishRepository): Response
     {
         $wishes = $wishRepository->findAllWithCategory();
-        dump($wishes);
+        $userConnecte = $this->getUser();
 
         return $this->render('wish/list.html.twig', compact('wishes'));
     }
@@ -35,6 +35,7 @@ class WishController extends AbstractController
             ]);
     }
 
+    #[isGranted('ROLE_USER')]
     #[Route('/create', name: '_create')]
     public function createWish(EntityManagerInterface $em, Request $request) :Response
     {

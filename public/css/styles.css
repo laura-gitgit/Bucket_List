@@ -19,6 +19,7 @@ main {
     font-size: 15px;
     display: flex;
     justify-content: space-between;
+    list-style-type: none;
 }
 
 
