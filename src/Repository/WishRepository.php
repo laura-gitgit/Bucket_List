@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Wish;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -39,7 +41,29 @@ class WishRepository extends ServiceEntityRepository
         }
     }
 
-    
+    public function findAllWithCategory () {
+        $queryBuilder = ($this->createQueryBuilder('w'))
+            ->leftJoin('w.category', 'category')
+            ->addSelect('category')
+            ->addOrderBy('w.dateCreated', 'DESC');
+        $query = $queryBuilder->getQuery();
+
+        return $query->getResult();
+    }
+
+    /**
+     * @throws NonUniqueResultException
+     */
+    public function findOneWithCategory (int $id) {
+        $queryBuilder = ($this->createQueryBuilder('w'))
+            ->leftJoin('w.category', 'category')
+            ->addSelect('category')
+            ->andWhere('w.id = :id')
+            ->setParameter('id', $id);
+        $query = $queryBuilder->getQuery();
+
+        return $query->getOneOrNullResult();
+    }
 
 //    /**
 //     * @return Wish[] Returns an array of Wish objects

@@ -60,13 +60,19 @@ body{
     font-size: 15px;
 }
 
+.wish-one h2 {
+    font-family: "Comic Sans MS";
+}
+
 main h1 {
     padding: 10px 0 0 2.9em;
 }
 
 .wish-list a {
     text-decoration: none;
-    color: blue;
+    color: midnightblue;
+    font-size: 20px;
+    font-family: "impact";
 }
 
 .form_wish {

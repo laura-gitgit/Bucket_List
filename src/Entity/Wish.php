@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\WishRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -15,7 +17,7 @@ class Wish
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Assert\Blank(message: 'Le message ne peut être vide')]
+    #[Assert\NotBlank(message: 'Le message ne peut être vide')]
     #[Assert\Length(min : 5, max: 250, minMessage: 'Veuillez entrer au moins 5 caractères', maxMessage: 'le titre ne peut être supérieur à 250 caractère')]
     #[ORM\Column(length: 250)]
     private ?string $title = null;
@@ -23,7 +25,7 @@ class Wish
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[Assert\Blank(message: 'Le message ne peut être vide')]
+    #[Assert\NotBlank(message: 'Le message ne peut être vide')]
     #[Assert\Length(min : 5, max: 50, minMessage: 'Veuillez entrer au moins 5 caractères', maxMessage: 'l\'auteur ne peut être supérieur à 50 caractère')]
     #[ORM\Column(length: 50)]
     private ?string $author = null;
@@ -35,6 +37,11 @@ class Wish
     #[Assert\GreaterThanOrEqual('today')]
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreated = null;
+
+    #[ORM\ManyToOne(inversedBy: 'wishes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $category = null;
+
 
     public function getId(): ?int
     {
@@ -100,4 +107,22 @@ class Wish
 
         return $this;
     }
+
+    /**
+     * @return Category
+     */
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function setCategory(?Category $category): void
+    {
+        $this->category = $category;
+    }
+
+
 }

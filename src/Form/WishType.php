@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Wish;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -17,7 +19,10 @@ class WishType extends AbstractType
             ->add('title', options: ['required'=>false])
             ->add('description', options: ['required'=>false])
             ->add('author', options: ['required'=>false])
+            ->add('category', EntityType::class,
+                ["class" => Category::class, "choice_label" => "name"])
             ->add('Ajouter', SubmitType::class)
+
         ;
     }
 
