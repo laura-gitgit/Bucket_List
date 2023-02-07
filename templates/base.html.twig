@@ -16,13 +16,15 @@
             <a href="{{ path('main_home') }}">HOME</a>
             <a href="{{ path('wish_wishes') }}">All wishes</a>
             <a href="{{ path('main_about') }}">About us</a>
-            <a href="{{ path('wish_create') }}">Ajouter un souhait</a>
             {% if  app.user%}
-                <li>Bienvenue {{ app.user.getUser }}</li>
-                <li>Logout <a href="{{ path('app_logout') }}" title="logout"></a></li>
+                <a href="{{ path('app_logout') }}" title="logout">Logout</a>
+                <a href="{{ path('wish_create') }}">Add your idea</a>
+                <p>Hello {{ app.user.username }}</p>
             {% else %}
-                <li><a href="{{ path('app_register') }}" title="s'authentifier">S'authentifier</a></li>
+                <a href="{{ path('app_register') }}" title="s'authentifier">Register</a>
+                <a href="{{ path('app_login') }}" title="s'authentifier">Login</a>
             {% endif %}
+
         </div>
     </header>
 

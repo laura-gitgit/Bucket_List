@@ -18,7 +18,7 @@ class Wish
     private ?int $id = null;
 
     #[Assert\NotBlank(message: 'Le message ne peut être vide')]
-    #[Assert\Length(min : 5, max: 250, minMessage: 'Veuillez entrer au moins 5 caractères', maxMessage: 'le titre ne peut être supérieur à 250 caractère')]
+    #[Assert\Length(min : 2, max: 250, minMessage: 'Veuillez entrer au moins 5 caractères', maxMessage: 'le titre ne peut être supérieur à 250 caractère')]
     #[ORM\Column(length: 250)]
     private ?string $title = null;
 

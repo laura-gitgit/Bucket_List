@@ -1,6 +1,9 @@
 .container{
+    height: 100%;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 header{
@@ -9,17 +12,31 @@ header{
     font-family: "Bookman Old Style";
 }
 
+.header_title{
+    background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    font-size: 6vw;
+    margin: 0;
+    font-weight: 200;
+}
+
 main {
     background: linear-gradient(to top, #FF9292, #CDB9F6) no-repeat;
     padding: 2rem 15%;
 }
 
 .header_home{
-    padding : 10px 1em 0 0.5em;
     font-size: 15px;
     display: flex;
     justify-content: space-between;
-    list-style-type: none;
+}
+
+.header_home p {
+    margin: inherit;
 }
 
 
@@ -94,5 +111,13 @@ main h1 {
     width: 100%;
     background: linear-gradient(to top, #B1F7AC, #CDB9F6) no-repeat;
     padding-top: 50px;
+}
+
+.register{
+    display: block;
+    width: 150px;
+    float: left;
+    line-height: 1.5rem;
+
 }
 

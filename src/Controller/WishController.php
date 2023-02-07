@@ -6,6 +6,7 @@ use App\Entity\Wish;
 use App\Form\WishType;
 use App\Repository\WishRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use http\Client\Curl\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,12 +41,14 @@ class WishController extends AbstractController
     public function createWish(EntityManagerInterface $em, Request $request) :Response
     {
         $wish = new Wish();
+        $wish->setAuthor($this->getUser()->getUsername());
         $wishForm = $this->createForm(WishType::class, $wish);
         $wishForm->handleRequest($request);
         if($wishForm->isSubmitted() ){
             try {
                 $wish->setIsPublished(true);
                 $wish->setDateCreated(new \DateTime());
+
                 if($wishForm->isValid()){
                     $em->persist($wish);
                 }

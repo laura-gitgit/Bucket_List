@@ -4,8 +4,9 @@
 
 {% block body %}
     <h1>Register</h1>
-
     {{ form_start(registrationForm) }}
+    <div class="register">
+        {{ form_row(registrationForm.username) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
@@ -13,7 +14,8 @@
         {{ form_row(registrationForm.agreeTerms) }}
 
         <button type="submit" class="btn">Register</button>
+    </div>
+
+
     {{ form_end(registrationForm) }}
-    <p>Déjà enregistré?</p>
-    <a href="{{ path('app_login') }}" title="s'authentifier">S'identifier</a>
 {% endblock %}
