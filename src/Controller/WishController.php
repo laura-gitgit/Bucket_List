@@ -36,12 +36,12 @@ class WishController extends AbstractController
             ]);
     }
 
-    #[isGranted('ROLE_USER')]
+    #[IsGranted('ROLE_USER')]
     #[Route('/create', name: '_create')]
     public function createWish(EntityManagerInterface $em, Request $request) :Response
     {
         $wish = new Wish();
-        $wish->setAuthor($this->getUser()->getUsername());
+        $wish->setAuthor($this->getUser()->getUserIdentifier());
         $wishForm = $this->createForm(WishType::class, $wish);
         $wishForm->handleRequest($request);
         if($wishForm->isSubmitted() ){
